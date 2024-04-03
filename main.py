@@ -102,7 +102,7 @@ def printHands(show):
 
     time.sleep(1)
 
-def getTotal(plr, show):
+def getTotal(plr, show=None):
     if plr == 'Dealer':
         dealerCount = 0
         strCount = False
@@ -110,7 +110,7 @@ def getTotal(plr, show):
             rank = str(i[1]).replace("[", "").replace("]", "").replace("'", "")
             side = str(i[2]).replace("[", "").replace("]", "").replace("'", "")
 
-            if side == "Up" or show == True:
+            if side == "Up" or show == True or show == None:
                 if rank in['J', 'Q','K']:
                     dealerCount += 10
                 elif rank not in ['J', 'Q', 'K', 'A']:
@@ -169,6 +169,7 @@ def stand():
 
 def hit():
     dealCard('Player', 'Up')
+    printHands(False)
     choice()
 
 def choice():
